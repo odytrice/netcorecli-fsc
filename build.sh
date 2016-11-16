@@ -9,7 +9,7 @@ if [ -d $artifactsFolder ]; then
   rm -R $artifactsFolder
 fi
 
-cd src/dotnet-compile-fsc
+pushd src/dotnet-compile-fsc
 
 dotnet --info
 
@@ -19,3 +19,5 @@ dotnet build
 
 revision=${TRAVIS_JOB_ID:=1}  
 revision=$(printf "%04d" $revision) 
+
+popd
